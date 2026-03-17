@@ -14,7 +14,7 @@ public class Grid {
     private final Cell[][] cells;
     private Cell targetCell;
 
-    public Grid(int x, int y) {
+    public Grid(int x, int y, int nbItems) {
         this.width = x;
         this.height = y;
         this.cells = new Cell[x][y];
@@ -26,7 +26,7 @@ public class Grid {
         }
 
         this.placeTarget();
-        this.placeRandomItems();
+        this.placeRandomItems(nbItems);
     }
 
     private void placeTarget() {
@@ -37,9 +37,7 @@ public class Grid {
         this.targetCell.setTarget(true);
     }
 
-    private void placeRandomItems() {
-        int nbItems = Math.max(1, (this.width * this.height) / 5);
-
+    private void placeRandomItems(int nbItems) {
         for (int i = 0; i < nbItems; i++) {
             Cell cell = getRandomCellWithoutItem();
             cell.setItem(createRandomItem());
