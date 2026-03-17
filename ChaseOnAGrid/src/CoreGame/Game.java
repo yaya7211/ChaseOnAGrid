@@ -7,9 +7,11 @@ public class Game {
     public static final int HUNTER_CAUGHT_PLAYER = 2;
     public static final int GENTLEMAN_STUCK_NO_ENERGY = -2;
 
+    public static final int NB_ITEMS = 4;
+
     public static final int highValue = 4;
 
-    private static final int[] GRID_SIZE = {10, 10};
+    private static final int[] GRID_SIZE = {3, 3};
 
     private Grid grid;
     private Gentleman gentleman;
@@ -22,7 +24,7 @@ public class Game {
     }
 
     private void startGame() {
-        this.grid = new Grid(GRID_SIZE[0], GRID_SIZE[1]);
+        this.grid = new Grid(GRID_SIZE[0], GRID_SIZE[1], NB_ITEMS);
         this.gentleman = new Gentleman(this, 10);
         this.hunter = new Hunter(this, 10);
         this.ui = new Interface(this);
